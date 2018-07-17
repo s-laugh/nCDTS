@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<title>Next CDTS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/w3.css">
+<link rel="stylesheet" href="/css/w3-theme-teal.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+<body>
+
+    <!-- Header -->
+    <header class="w3-container w3-theme w3-padding" id="myHeader">
+        <div class="w3-center">
+            <h1 class="w3-xxxlarge w3-animate-bottom">Next Centrally Deployed Templates Solution (nCDTS)</h1>
+            <h2>Inline nCDTS Instructions Example</h2>
+            <h3>Component Replacement Instructions</h3>
+        </div>
+    </header>
+
+    <div class="w3-padding w3-white w3-display-container">
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-display-topright">
+            <i class="fa fa-remove"></i>
+        </span>
+        <p>This page demonstrates how to provide CDTS instructions inline (in a script tag) on a page. The script element that
+            contains the CDTS instruction object should be place at the end of the body element before the script element
+            for the 'cdtsnext.js'. The CDTS instruction object variable name
+            <em>must be</em>
+            <strong>cdts_instructions</strong>.</p>
+        <p>Example:</p>
+        <pre>
+                &lt;body&gt;
+                ...
+                &lt;script&gt;
+                    var cdts_instructions = {
+                    ...
+                    };
+                &lt;/script&gt;
+                &lt;script src="/cdtsnext.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;           
+        </pre>
+    </div>
+
+    <div class="w3-row-padding w3-margin-top w3-padding">
+        <h2>Component Replacement Instructions</h2>
+        <p>The following cards are an example of a component replacement instruction to the CDTS. A component replacement finds
+            an element specified by an id attribute and replaces the inner HTML of that element with HTML from the components
+            <em>generateHtml()</em> function.</p>
+        <p>The JSON format for component replacement instructions is: </p>
+        <pre>
+            "component-replacements":
+            {
+                "element-id": {
+                    "component-package": "componentspackage",
+                    "component-name": "componentname",
+                    ... addtional data that will be passed to component ...
+                },
+                "element-id": {
+                    "component-package": "componentspackage",
+                    "component-name": "componentname",
+                    ... addtional data that will be passed to component ...
+                },
+                ...
+            }
+    </pre>
+        <p>Components
+            <strong>are not</strong> part of the core nCDTS module. Currently component modules must be added using a script tag
+            at the end of the body element
+            <strong>before</strong> the nCDTS script element.</strong>
+            A future goal is to have nCDTS module load component modules without the need for an additional script element.</p>
+        <p>The following 'w3-card' div element content is being replaced using the Demonstration Components module:</p>
+        <pre>
+            &lt;script src="/democomponents.js"&gt;&lt;/script&gt;
+            &lt;script src="/cdtsnext.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+        </pre>
+        <p>The component replacement instructions:</p>
+        <pre>
+        "component-replacements": {
+            //Lorem Ipsum text - 2 headers and paragraphs
+            "div-id-one": {
+                "component-package": "democomponents",
+                "component-name": "LoremIpsumComponent",
+                "output": "p",
+                "number": 2
+            },
+            //Lorem Ipsum un-ordered list , 3 items
+            "div-id-two": {
+                "component-package": "democomponents",
+                "component-name": "LoremIpsumComponent",
+                "output": "ul",
+                "number": 3
+            },
+            // Hello nCDTS
+            "div-id-three": {
+                "component-package": "democomponents",
+                "component-name": "HelloWorldComponent",
+                "name": "nCDTS",
+            }
+        }           
+    </pre>
+        <div class="w3-half">
+            <div class="w3-card w3-container" style="min-height:250px">
+                <!-- CDTS content will be placed here -->
+                <h3>Lorem Ipsum Paragraphs</h3>
+                <div  id="div-id-one"></div>
+            </div>
+        </div>
+        <div class="w3-half">
+            <div class="w3-card w3-container" style="min-height:250px">
+                <!-- CDTS content will be placed here -->
+                <h3>Lorem Ipsum List</h3>
+                <div id="div-id-two"></div>
+                <h3>Hello:</h3>
+                <div id="div-id-three"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-row-padding w3-center w3-margin-top w3-padding">
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-theme-dark">
+        <h3><a href="/html/index.html">Next CDTS</a></h3>
+        <p>Powered by
+            <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+        </p>
+        <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
+            <span class="w3-text w3-theme w3-padding">Go To Top</span>&nbsp;
+            <a class="w3-text-white" href="#myHeader">
+                <span class="w3-xlarge">
+                    <i class="fa fa-chevron-circle-up"></i>
+                </span>
+            </a>
+        </div>
+        <p>w3.css
+            <a href="W3CSSExample.html">Example Page</a>
+        </p>
+    </footer>
+
+    <script>
+        var cdts_instructions = {
+            "component-replacements": {
+                //Lorem Ipsum text - 2 headers and paragraphs
+                "div-id-one": {
+                    "component-package": "democomponents",
+                    "component-name": "LoremIpsumComponent",
+                    "output": "p",
+                    "number": 2
+                },
+                //Lorem Ipsum un-ordered list , 3 items
+                "div-id-two": {
+                    "component-package": "democomponents",
+                    "component-name": "LoremIpsumComponent",
+                    "output": "ul",
+                    "number": 3
+                },
+                // Hello nCDTS
+                "div-id-three": {
+                    "component-package": "democomponents",
+                    "component-name": "HelloWorldComponent",
+                    "name": "nCDTS",
+                }
+            }
+            // ,
+            // "additional-scripts":[
+            //     "/demo.js"
+            // ]
+        };
+    </script>
+    <script src="/democomponents.js"></script>
+    <script src="/cdtsnext.js"></script>
+</body>
+
+</html>

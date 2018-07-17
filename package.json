@@ -1,0 +1,43 @@
+{
+  "name": "cdts_next",
+  "version": "1.0.0",
+  "description": "Prototype for next version of the Centrally Deployed Template Solution.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest ",
+    "start": "webpack-dev-server --open",
+    "build": "webpack"
+  },
+  "keywords": [
+    "Templates",
+    "ECMA6"
+  ],
+  "author": "Stan Grabinski",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-jest": "^23.0.1",
+    "babel-register": "^6.26.0",
+    "jest": "^23.1.0",
+    "jsdom": "^11.11.0",
+    "node-fetch": "^2.1.2",
+    "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.2",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "xss-filters": "^1.2.7"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "jest": {
+    "verbose": false,
+    "testRegex": "(/test/unit/.*|(\\.|/)(test|spec))\\.jsx?$"
+  }
+}

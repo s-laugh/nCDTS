@@ -1,0 +1,30 @@
+{
+    "additional-scripts": [
+        "/js/demo1.js",
+        "/js/demo2.js"
+    ],
+    "component-replacements": {
+        "div-id-three": {
+            "component-package": "democomponents",
+            "component-name": "LoremIpsumComponent",
+            "output": "p",
+            "number": 2
+        },
+        "div-id-four": {
+            "component-package": "democomponents",
+            "component-name": "LoremIpsumComponent",
+            "output": "ul",
+            "number": 3
+        },
+        "div-id-five": {
+            "component-package": "democomponents",
+            "component-name": "HelloWorldComponent",
+            "name": "nCDTS"
+        }
+    },
+    "direct-replacements":
+    {
+        "div-id-six": " <h3>Star Wars Quotes</h3><br><ol><li>As you wish.</li><li>Kid, I've flown from one side of this galaxy to the other. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense.</li><li>You're all clear, kid. Let's blow this thing and go home!</li></ol>",
+        "div-id-seven": "<h3>The Simpsons Quotes</h3><br><ol><li>Marge, it takes two to lie. One to lie and one to listen.</li><li>But, Aquaman, you cannot marry a woman without gills. You're from two different worlds… Oh, I've wasted my life.</li><li>Beer. Now there's a temporary solution.</li></ol>"
+    }
+}

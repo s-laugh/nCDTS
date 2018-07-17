@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<title>Next CDTS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/w3.css">
+<link rel="stylesheet" href="/css/w3-theme-teal.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+<body>
+
+    <!-- Header -->
+    <header class="w3-container w3-theme w3-padding" id="myHeader">
+        <div class="w3-center">
+            <h1 class="w3-xxxlarge w3-animate-bottom">Next Centrally Deployed Templates Solution (nCDTS)</h1>
+            <h2>Inline nCDTS Instructions Example</h2>
+            <h3>Additional Script Instructions</h3>
+        </div>
+    </header>
+
+    <div class="w3-padding w3-white w3-display-container">
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-display-topright">
+            <i class="fa fa-remove"></i>
+        </span>
+        <p>This page demonstrates how to provide CDTS instructions inline (in a script tag) on a page. The script element that
+            contains the CDTS instruction object should be place at the end of the body element before the script element
+            for the 'cdtsnext.js'. The CDTS instruction object variable name
+            <em>must be</em>
+            <strong>cdts_instructions</strong>.</p>
+        <p>Example:</p>
+        <pre>
+                &lt;body&gt;
+                ...
+                &lt;script&gt;
+                    var cdts_instructions = {
+                    ...
+                    };
+                &lt;/script&gt;
+                &lt;script src="/cdtsnext.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;           
+        </pre>
+    </div>
+
+    <div class="w3-row-padding w3-margin-top w3-padding">
+        <h2>Additional Script Instructions</h2>
+        <p>The following cards are an example of an additional script instruction to the CDTS. A additional script instruction
+            loads a script from the specified source by creating a new script element at the end of the body of the page.</p>
+        <p>The JSON format for additional script instructions is: </p>
+        <pre>
+            "additional-scripts": [
+            "/script-1.js",
+            "/script-2.js",
+            ...
+        ]
+        </pre>
+        <p>The following 'w3-card' div element content is being replaced by java script that is being loaded into the page using
+            the addtional script instructions:</p>
+        <pre>
+        "additional-scripts": [
+            "/js/demo1.js",
+            "/js/demo2.js"
+        ]            
+        </pre>
+
+        <div class="w3-half">
+            <div class="w3-card w3-container" style="min-height:250px" id="div-id-one">
+                <!-- CDTS content will be placed here -->
+                <p>The demo1.js script should replace this content.</p>
+            </div>
+        </div>
+        <div class="w3-half">
+            <div class="w3-card w3-container" style="min-height:250px" id="div-id-two">
+                <!-- CDTS content will be placed here -->
+                <p>The demo2.js script should replace this content.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-row-padding w3-center w3-margin-top w3-padding">
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-theme-dark">
+        <h3><a href="/html/index.html">Next CDTS</a></h3>
+        <p>Powered by
+            <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+        </p>
+        <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
+            <span class="w3-text w3-theme w3-padding">Go To Top</span>&nbsp;
+            <a class="w3-text-white" href="#myHeader">
+                <span class="w3-xlarge">
+                    <i class="fa fa-chevron-circle-up"></i>
+                </span>
+            </a>
+        </div>
+        <p>w3.css
+            <a href="W3CSSExample.html">Example Page</a>
+        </p>
+    </footer>
+
+    <script>
+        var cdts_instructions = {
+            "additional-scripts": [
+                "/js/demo1.js",
+                "/js/demo2.js"
+            ]
+        };
+    </script>
+    <script src="/cdtsnext.js"></script>
+</body>
+
+</html>

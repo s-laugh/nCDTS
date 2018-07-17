@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<title>Next CDTS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/w3.css">
+<link rel="stylesheet" href="/css/w3-theme-teal.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+<body>
+
+  <!-- Header -->
+  <header class="w3-container w3-theme w3-padding" id="myHeader">
+    <div class="w3-center">
+      <h1 class="w3-xxxlarge w3-animate-bottom">Next Centrally Deployed Templates Solution (nCDTS)</h1>
+    </div>
+  </header>
+
+  <div class="w3-padding w3-white w3-display-container">
+    <span onclick="this.parentElement.style.display='none'" class="w3-button w3-display-topright">
+      <i class="fa fa-remove"></i>
+    </span>
+    <h2>Preface</h2>
+    <p>The Next Centrally Deployed Templates Solution(nCDTS), is a redesign of the original CDTS solution. As the CDST has evovled
+      beyond its original desgin the current architecture has reached its limits in adaptability and maintainability. This
+      project is a prototype that attempts to make use of the best new functionality avaiable in modern web browsers and
+      ECMA Script - while still being backwards compatible with some older browsers.
+
+   <h2>Purpose</h2>
+   <p>The purpose of Next Centrally Deployed Templates Solution(nCDTS) is to have the client browser apply common, standardized DOM templates to a web page. The nCDTS module uses an instruction object to determine what to alter in the DOM of the page. 
+     The instruction object can be inline or fetched.
+     The <em>primary goal</em> of the core nCDTS module is to apply the instructed DOM alterations as efficeintly as possible and then get out of the way of other page functionality (scripts, css).
+   </p>
+  </div>
+
+  <div class="w3-row-padding w3-center w3-margin-top w3-padding">
+    <div class="w3-half">
+      <div class="w3-card w3-container" style="min-height:460px">
+        <h3>W3.CSS Demonstration Pages</h3>
+        <br>
+        <h4>Inline CDTS Instructions</h4>
+        <p>
+          <a href="W3CSS_inline_direct.html">Inline CDTS Instructions - Direct Replace</a>
+        </p>
+        <p>
+          <a href="W3CSS_inline_component.html">Inline CDTS Instructions - Component Replace</a>
+        </p>
+        <p>
+          <a href="W3CSS_inline_additionalscript.html">Inline CDTS Instructions - Additional Scripts</a>
+        </p>
+        <h4>Fetched CDTS Instructions</h4>
+        <p>
+          <a href="W3CSS_fetched_all.html">Fetched CDTS Instructions - Additional Script Instructions, Component Replacement Instructions, Direct Replacement Instructions</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="w3-half">
+      <div class="w3-card w3-container" style="min-height:460px">
+        <h3>WET Demonstration Pages</h3>
+        <br>
+        <p>Coming soon ...</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-theme-dark">
+    <h3>Next CDTS</h3>
+    <p>Powered by
+      <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+    </p>
+    <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
+      <span class="w3-text w3-theme w3-padding">Go To Top</span>&nbsp;
+      <a class="w3-text-white" href="#myHeader">
+        <span class="w3-xlarge">
+          <i class="fa fa-chevron-circle-up"></i>
+        </span>
+      </a>
+    </div>
+    <p>w3.css
+      <a href="W3CSSExample.html">Example Page</a>
+    </p>
+  </footer>
+
+  <script>
+    // var cdts_instructions = {"test":"test"};
+    var cdts_instructions_url = "/cdts-instructions.json"
+  </script>
+  <script src="/cdtsnext.js"></script>
+</body>
+
+</html>
