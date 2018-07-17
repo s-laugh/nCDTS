@@ -2,7 +2,7 @@
 
 The Next Centrally Deployed Templates Solution (nCDTS), is a redesign of the original CDTS solution. As the CDST has evolved
       beyond its original design the current architecture has reached its limits in adaptability and maintainability. This
-      project is a prototype that attempts to make use of the best new functionality avaiable in modern web browsers and
+      **_project is a prototype_** that attempts to make use of the best new functionality avaiable in modern web browsers and
       ECMA Script - while still being backwards compatible with some older browsers.
       
 ## Purpose
