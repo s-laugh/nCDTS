@@ -1,0 +1,82 @@
+{
+    "template" : "GCWeb",
+    "application" : false,
+    "jqueryEnv" : "local",
+    "webAnalytics" : true,
+    "top" : {
+        "search" : true,
+        "siteMenu" : true,
+        "lngLinks" : {
+            "lang" : "fr",
+            "href" : "example.html",
+            "text" : "Français"
+        },
+        "showPreContent" : true,
+        "breadcrumbs" : [{
+            "title" : "Home",
+            "href" : "https://www.canada.ca/en/index.htm"
+        },{
+            "text" : "CDTS",
+            "acronym" : "Centrally Deployed Templates Solution",
+            "href" : "https://github.com/cenw-wscoe/sgdc-cdts"
+        }],
+        "topSecMenu": true
+    },
+    "preFooter" : {
+        "dateModified" : "2015-10-09",
+        "showPostContent" : true,
+        "showShare" : ["email", "facebook", "linkedin", "twitter"],
+        "showFeedback" : "https://domain.com",
+        "screenIdentifier" : "0123456789",
+        "versionIdentifier" : "0123456789",
+        "pagedetails" : false
+    },
+    "secMenu" : {
+        "sectionName" : "Section name",
+        "menuLinks" : [{
+            "text": "Link 1",
+            "href" : "https://domain.com",
+            "subLinks" : [{
+                "href" : "https://domain.com", 
+                "text": "Link 1.1",
+                "newWindow": true
+            }, {
+                "href" : "https://domain.com", 
+                "text": "Link 1.2"
+            }]
+        }, {
+            "text": "Link 2",
+            "href" : "https://domain.com"
+        }, {
+            "text": "Link 3",
+            "href" : "https://domain.com",
+            "subLinks" : [{
+                "href" : "https://domain.com", 
+                "text": "Link 3.1"
+            }]
+        }]
+    },
+    "footer" : {
+        "$contactLink" : {
+            "href" : "https://domain.com",
+            "newWindow" : true
+        },
+        "$termsLink" : {
+            "href" : "https://domain.com",
+            "newWindow" : false
+        },
+        "$privacyLink" : {
+            "href" : "https://domain.com",
+            "newWindow" : true
+        },
+        "$showFooter" : true
+    },
+    "refFooter" : {
+        "$exitScript" : {
+            "$exitURL" : "https://domain.com",
+            "$exitMsg" : "You are about to leave a secure site, do you wish to continue?",
+            "$exitDomains" : "https://canada.ca/en/index.htm",
+            "$displayModal" : true
+        }
+    }
+}

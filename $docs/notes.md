@@ -7,6 +7,7 @@ This project is based on the idea by Stan Grabinski in [Next Centrally Deployed 
 ## Ideas
 
 * [ ] node.js
+* [ ] no environment variables / relative to package paths
 * [ ] webpack
 * [ ] open source
 * [ ] automated testing
@@ -17,3 +18,24 @@ This project is based on the idea by Stan Grabinski in [Next Centrally Deployed 
 * [ ] babel
 * [ ] Way for developer to choose what version to use (in json, path or other way) 
   * [ ] way to maintain it (git branch, git label, git releases)
+* [ ] git submodule for samples
+
+Process
+
+Have two ways of controlling the modules:
+
+1. Using an external JSON file
+2. Using `data-cdts` attributes with JSON objects as values to control the output
+
+You can combine both ways, the external file as a site wide information, the inline attributes as a per page type of control.
+
+Could we make it like CSS where the inline overrides the linked file?
+
+Maybe add a place to title the page with a `data-cdts` attribute? This way we control the `h1` and the `title` with the same text
+
+Should we limit the amount of HTML elements they put in??? Remove the `main`, `h1`, `title`, and even the meta description.
+
+Should our script element for our main JS be at the top of the bottom of the page????
+
+
+

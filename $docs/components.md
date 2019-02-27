@@ -48,7 +48,7 @@ This is all of the html for the secondary menu.
 
 This is all of the html to be included after existing page content.
 
-* **$contactLinks** - Used to override the Contact link in the footer.
+* **$contactLink** - Used to override the Contact link in the footer.
 * **$termsLink** - Used to override the Terms and conditions link in the footer.
 * **$privacyLink** - Used to override the Privacy link in the footer.
 * **$showFooter** - Used to determine if the page footer will be displayed.
