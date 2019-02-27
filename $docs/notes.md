@@ -9,8 +9,10 @@ This project is based on the idea by Stan Grabinski in [Next Centrally Deployed 
 * [ ] node.js
 * [ ] no environment variables / relative to package paths
 * [ ] webpack
-* [ ] open source
+* [ ] open source the project
 * [ ] automated testing
+  * [ ] unit test
+  * [ ] a11y
 * [ ] automated deploy using CI
 * [ ] generating example pages (documentation)
   * [ ] using assemble.io
@@ -19,6 +21,7 @@ This project is based on the idea by Stan Grabinski in [Next Centrally Deployed 
 * [ ] Way for developer to choose what version to use (in json, path or other way) 
   * [ ] way to maintain it (git branch, git label, git releases)
 * [ ] git submodule for samples
+* [ ] create a i18n.json for all text inside components 
 
 Process
 
