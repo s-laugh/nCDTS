@@ -27,8 +27,8 @@ Process
 
 Have two ways of controlling the modules:
 
-1. Using an external JSON file
-2. Using `data-cdts` attributes with JSON objects as values to control the output
+1. Using an [external JSON file](example.json)
+2. Using `data-cdts` attributes with JSON objects as values to control the output in the [HTML source](example.html)
 
 You can combine both ways, the external file as a site wide information, the inline attributes as a per page type of control.
 
