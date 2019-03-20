@@ -9,8 +9,10 @@ This project is based on the idea by Stan Grabinski in [Next Centrally Deployed 
 * [ ] node.js
 * [ ] no environment variables / relative to package paths
 * [ ] webpack
-* [ ] open source
+* [ ] open source the project
 * [ ] automated testing
+  * [ ] unit test
+  * [ ] a11y
 * [ ] automated deploy using CI
 * [ ] generating example pages (documentation)
   * [ ] using assemble.io
@@ -19,13 +21,14 @@ This project is based on the idea by Stan Grabinski in [Next Centrally Deployed 
 * [ ] Way for developer to choose what version to use (in json, path or other way) 
   * [ ] way to maintain it (git branch, git label, git releases)
 * [ ] git submodule for samples
+* [ ] create a i18n.json for all text inside components 
 
 Process
 
 Have two ways of controlling the modules:
 
-1. Using an external JSON file
-2. Using `data-cdts` attributes with JSON objects as values to control the output
+1. Using an [external JSON file](example.json)
+2. Using `data-cdts` attributes with JSON objects as values to control the output in the [HTML source](example.html)
 
 You can combine both ways, the external file as a site wide information, the inline attributes as a per page type of control.
 
