@@ -1,5 +1,5 @@
-import CDTSInstructionProcessor from '../../src/CDTSInstructionProcessor';
-import * as CDTSConstants from '../../src/CDTSConstants';
+import CDTSInstructionProcessor from '../../../src/CDTS/CDTSInstructionProcessor';
+import * as CDTSConstants from '../../../src/CDTS/CDTSConstants';
 import jsdom from 'jsdom';
 
 const { JSDOM } = jsdom;
