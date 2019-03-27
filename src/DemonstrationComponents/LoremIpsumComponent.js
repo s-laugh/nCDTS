@@ -1,4 +1,4 @@
-import CDTSBaseComponent from '../CDTSBaseComponent';
+import CDTSBaseComponent from '../CDTS/CDTSBaseComponent';
 
 export const LoremIpsumArray = [
     "Lorem ipsum dólór sit, amet contemnentes crudéli filio hunc impediente leniter ponti quáeritur torquatus. Celeritas cóllaudata ei imitarentur, oportere vocent. Contemnit discedere doloribus fugit hábet, impetum inbecilloque miraretur oritur sécuri suppetet. Causas celeritas definitiones ignota, laetetur potitur seiunctum tanta, tincidunt tranquillitatem. Eius enim gravissimis harum orationis videtis.",
@@ -49,8 +49,8 @@ export default class LoremIpsumComponent extends CDTSBaseComponent {
             }
             for (var x = 0; x < i; x++) {
                 var endposition = LoremIpsumArray[x].indexOf(".");
-                var headingtext = LoremIpsumArray[x].substring(0,endposition).trim();
-                html += `<h${x+1}>${headingtext}</h${x+1}><p>${LoremIpsumArray[x]}</p>`;
+                var headingtext = LoremIpsumArray[x].substring(0, endposition).trim();
+                html += `<h${x + 1}>${headingtext}</h${x + 1}><p>${LoremIpsumArray[x]}</p>`;
             }
             return html;
         }
