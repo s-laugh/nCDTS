@@ -34,7 +34,7 @@ export default class CDTSInstructionPromiseFactory {
         var component = data[CDTSConstants.CDTS_INSTRUCTIONS_COMPONENT_NAME_KEY];
         return new Promise((resolve, reject) => {
             try {
-                var cmpnnt = new ModuleComponents(component, elementid, data);
+                var cmpnnt = new theWindow[componentpackage].default(component, elementid, data);
                 CDTSDomModifier.replaceInnerHtml(theWindow, elementid, cmpnnt.generateHtml());
                 resolve();
             } catch (error) {
