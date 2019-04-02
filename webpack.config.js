@@ -6,11 +6,14 @@ module.exports = {
   mode: 'development',
   entry: {
     cdtsnext: ['./src/CDTS/cdtsnext.js', 'babel-polyfill'],
-    democomponents: './src/DemonstrationComponents/democomponents.js'
+    democomponents: './src/DemonstrationComponents/democomponents.js',
+    wetGcweb: './src/wet-gcweb-components/wetGcweb.js'
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    libraryTarget: 'var',
+    library: '[name]'
   },
   devServer: {
     // contentBase: [path.join(__dirname, "test/html"), path.join(__dirname, "dist"), path.join(__dirname, "test"), path.join(__dirname, "test/json"), path.join(__dirname, "test/js")],
