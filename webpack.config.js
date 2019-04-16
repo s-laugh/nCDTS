@@ -5,7 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    cdtsnext: ['./src/CDTS/cdtsnext.js', 'babel-polyfill'],
+    cdtsnext: ['./src/CDTS/cdtsnext.js', '@babel/polyfill'],
     democomponents: './src/DemonstrationComponents/democomponents.js',
     wetGcweb: './src/wet-gcweb-components/wetGcweb.js'
   },
@@ -28,7 +28,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env']
+            presets: ['@babel/preset-env']
           }
         }
       }

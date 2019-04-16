@@ -1,7 +1,7 @@
 import * as CDTSConstants from './CDTSConstants';
 import CDTSLoader  from './CDTSLoader';
 import CDTSInstructionProcessor from './CDTSInstructionProcessor';
-import 'babel-polyfill';
+import '@babel/polyfill';
 
 CDTSLoader.getCDTSInstructions(window)
 .then( json => {
