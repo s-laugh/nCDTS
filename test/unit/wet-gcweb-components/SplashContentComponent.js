@@ -17,9 +17,6 @@ var data = {
 };
 
 
-const expecteDefaultdHtml = `<div id="bg"><img src="https://ssl-templates.services.gc.ca/app/cls/WET/gcweb/v4_0_30/img/splash/sp-bg-2.jpg" alt=""></div>`
-    + `<main><div class="sp-hb"><div class="sp-bx col-xs-12"><h1 property="name" class="wb-inv">Canada.ca</h1><div class="row"><div class="col-xs-11 col-md-8"><img src="https://ssl-templates.services.gc.ca/app/cls/WET/gcweb/v4_0_30/assets/sig-spl.svg" alt="Government of Canada / Gouvernement du Canada"></div></div><div class="row"><section class="col-xs-6 text-right"><h2 style="min-height:4.5em;">Title For This Test</h2><p><a href="english_index.html" class="btn btn-primary">English</a></p></section><section class="col-xs-6" lang="fr"><h2 style="min-height:4.5em;">Titre de ce test</h2><p><a href="francais_index.html" class="btn btn-primary">Français</a></p></section></div></div><div class="sp-bx-bt col-xs-12"><div class="row"><div class="col-xs-7 col-md-8"><a href="http://www.canada.ca/en/transparency/terms.html" class="sp-lk">Terms &amp; conditions</a> <span class="glyphicon glyphicon-asterisk"></span> <a href="http://www.canada.ca/fr/transparence/avis.html" class="sp-lk" lang="fr">Avis</a></div><div class="col-xs-5 col-md-4 text-right mrgn-bttm-md"><img src="https://ssl-templates.services.gc.ca/app/cls/WET/gcweb/v4_0_30/assets/wmms-spl.svg" alt="Symbol of the Government of Canada / Symbole du gouvernement du Canada" width="127"></div></div></div></div></main>`;
-
 test('SplashContentComponent - constructor - data null - expect error to be thrown', () => {
     function badconstructor() {
         var component = new SplashContentComponent(elementId);
@@ -36,6 +33,17 @@ test('SplashContentComponent - constructor - data missing required properties - 
 });
 
 test('SplashContentComponent - generateHtml - data with required values set - expect correct html string to be returned.', () => {
-    var component = new SplashContentComponent(elementId, data);
-    expect(component.generateHtml()).toEqual(expecteDefaultdHtml);
+    let component = new SplashContentComponent(elementId, data);
+    let generatedHtml = component.generateHtml();
+
+    expect(generatedHtml).toContain(`<h1 property="name" class="wb-inv">Canada.ca</h1>`);
+    expect(generatedHtml).toContain(`<main>`);
+    expect(generatedHtml).toContain(`https://ssl-templates.services.gc.ca/app/cls/WET/gcweb/${data.cdts_version}/img/splash/sp-bg-2.jpg`);
+    expect(generatedHtml).toContain(`https://ssl-templates.services.gc.ca/app/cls/WET/gcweb/${data.cdts_version}/assets/sig-spl.svg`);
+    expect(generatedHtml).toContain(`<h2 style="min-height:4.5em;">${data.nameEng}</h2>`);
+    expect(generatedHtml).toContain(`<a href="${data.indexEng}" class="btn btn-primary">`);
+    expect(generatedHtml).toContain(`<h2 style="min-height:4.5em;">${data.nameFra}</h2>`);
+    expect(generatedHtml).toContain(`<a href="${data.indexFra}" class="btn btn-primary">`);
+    expect(generatedHtml).toContain(`<a href="${data.termsEng}" class="sp-lk">`);
+    expect(generatedHtml).toContain(`https://ssl-templates.services.gc.ca/app/cls/WET/gcweb/${data.cdts_version}/assets/wmms-spl.svg`);
 });
