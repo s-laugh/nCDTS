@@ -15,21 +15,25 @@
   "author": "Stan Grabinski",
   "license": "ISC",
   "devDependencies": {
-    "babel-jest": "^24.7.1",
     "@babel/register": "^7.4.0",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.13.4",
+    "babel-jest": "^24.7.1",
     "clean-webpack-plugin": "^2.0.0",
     "copy-webpack-plugin": "^5.0.0",
     "jest": "^24.7.1",
     "jsdom": "^11.11.0",
     "node-fetch": "^2.1.2",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.3",
     "webpack": "^4.11.1",
     "webpack-cli": "^3.0.2",
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
     "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
     "@babel/polyfill": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
     "babel-loader": "^8.0.5",
     "xss-filters": "^1.2.7"
   },
@@ -39,7 +43,5 @@
     ]
   },
   "jest": {
-    "verbose": false,
-    "testRegex": "(/test/unit/.*|(\\.|/)(test|spec))\\.jsx?$"
   }
 }
