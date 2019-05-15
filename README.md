@@ -13,10 +13,20 @@ The *primary goal* of the core nCDTS module is to apply the instructed DOM alter
 
 ## Working with this repository
 
-#### Requirements
+### Requirements
 To work with this project you will need **node.js** and **npm** installed. This project was created with:
 - **node.js v8.11.2**
 - **npm 5.6.0**
+
+#### Security
+
+##### Verifying commits
+
+This project will need you to use GPG to verify commits. Please follow [Signing commits with GPG](https://docs.gitlab.com/ee/user/project/repository/gpg_signed_commits/).
+
+##### Two Factor Authentication (2FA)
+
+All members to this project will need to have 2FA enabled to merge any code into the repository. Read more about [Two-Factor Authentication ](https://docs.gitlab.com/ee/user/profile/account/two_factor_authentication.html) on the Gitlab site. 
 
 #### Install dependencies
 Clone this repository to a local directory. On the command line move to the cloned directory ( this directory should contain the package.json file) and run : `$ npm install`.
