@@ -1,4 +1,3 @@
-import * as CDTSConstants from './CDTSConstants';
 // import * as xssFilters from 'xss-filters';
 
 export default class CDTSDomModifier {

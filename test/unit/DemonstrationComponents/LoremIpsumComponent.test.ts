@@ -1,6 +1,6 @@
 import LoremIpsumComponent from '../../../src/DemonstrationComponents/LoremIpsumComponent';
-import jsdom from 'jsdom';
-const { JSDOM } = jsdom;
+import { JSDOM } from 'jsdom';
+
 const elementId = "element-id";
 const exampleData3Paragraph = { "output": "p", "number": 3 };
 const exampleData5Paragraph = { "output": "ul", "number": 5 };

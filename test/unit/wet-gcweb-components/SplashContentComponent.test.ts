@@ -19,14 +19,14 @@ var data = {
 
 test('SplashContentComponent - constructor - data null - expect error to be thrown', () => {
     function badconstructor() {
-        var component = new SplashContentComponent(elementId);
+        var component = new SplashContentComponent(elementId); //suposed to be an error
     }
     expect(badconstructor).toThrowError(CDTSConstants.CDTS_INSTRUCTIONS_NOT_VALID);
 });
 
 /* test('SplashContentComponent - constructor - data missing required properties - expect error to be thrown', () => {
     function constructorwithbaddata() {
-        # test won't compile with missing propery
+        // test won't compile with missing propery
         datawithmissingprops = {}
         component = new SplashContentComponent(elementId, datawithmissingprops);
     }

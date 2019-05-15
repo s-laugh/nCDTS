@@ -5,7 +5,7 @@ const expectedHtmlNullData = "<p>Hello World!</p>";
 const expectedHtmlWithData = `<p>Hello ${exampleData.name}!</p>`;
 
 test('HelloWorldComponent - generateHtml - data null - should return simple "Hello World" p element', () => {
-    var component = new HelloWorldComponent(elementId);
+    var component = new HelloWorldComponent(elementId, null);
     expect(component.generateHtml()).toEqual(expectedHtmlNullData);
 });
 

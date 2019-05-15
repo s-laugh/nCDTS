@@ -8,11 +8,11 @@ export default class SplashContentComponent extends CDTSBaseComponent {
             throw CDTSConstants.CDTS_INSTRUCTIONS_NOT_VALID;
         }
         super(targetElementId, data);
-        this.hasDataForRequiredProperties();
+        this.HasDataForRequiredProperties(data);
 
     }
 
-    hasDataForRequiredProperties(data) {
+    HasDataForRequiredProperties(data) {
         var requiredProperties = [
             'cdts_version', 
             'nameEng', 

@@ -58,8 +58,6 @@ export default class LoremIpsumComponent extends CDTSBaseComponent {
         return ``;
     }
 
-
-
     getRandomLoremIpsum() {
         var x = Math.floor((Math.random() * LoremIpsumArray.length));
         return LoremIpsumArray[x];

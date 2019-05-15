@@ -1,13 +1,13 @@
-const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const path = require('path')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   mode: 'development',
   entry: {
-    cdtsnext: ['./src/CDTS/cdtsnext.js', '@babel/polyfill'],
-    democomponents: './src/DemonstrationComponents/democomponents.js',
-    wetGcweb: './src/wet-gcweb-components/wetGcweb.js'
+    cdtsnext: ['./src/CDTS/cdtsnext.ts', '@babel/polyfill'],
+    democomponents: './src/DemonstrationComponents/democomponents.ts',
+    wetGcweb: './src/wet-gcweb-components/wetGcweb.ts'
   },
   output: {
     filename: '[name].js',
@@ -17,8 +17,11 @@ module.exports = {
   },
   devServer: {
     // contentBase: [path.join(__dirname, "test/html"), path.join(__dirname, "dist"), path.join(__dirname, "test"), path.join(__dirname, "test/json"), path.join(__dirname, "test/js")],
-    contentBase: path.join(__dirname, "src/html"),
+    contentBase: path.join(__dirname, 'src/html'),
     openPage: 'splash.html'
+  },
+  resolve: {
+    extensions: ['.ts', '.js', '.json']
   },
   module: {
     rules: [
@@ -43,7 +46,7 @@ module.exports = {
         from: 'src/html/*.html',
         to: 'html/[name].[ext]',
         toType: 'template'
-      },
+      }
     ])
-  ],
-};
+  ]
+}
