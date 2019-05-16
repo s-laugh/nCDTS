@@ -36,6 +36,7 @@ test('SplashContentComponent - constructor - data null - expect error to be thro
 test('SplashContentComponent - generateHtml - data with required values set - expect correct html string to be returned.', () => {
     let component = new SplashContentComponent(elementId, data);
     let generatedHtml = component.generateHtml();
+    
 
     expect(generatedHtml).toContain(`<h1 property="name" class="wb-inv">Canada.ca</h1>`);
     expect(generatedHtml).toContain(`<main>`);
