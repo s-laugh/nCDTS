@@ -43,5 +43,9 @@
       "@babel/preset-env"
     ]
   },
-  "jest": {}
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    }
+  }
 }
