@@ -1,13 +1,37 @@
 import CDTSBaseComponent from '../CDTS/CDTSBaseComponent';
 import * as CDTSConstants from '../CDTS/CDTSConstants';
 
+export const TOP_CONTENT_COMPONENT_TEXT ={
+    "skip_to_main":{
+        "en": "Skip to main content",
+        "fr": "FR-Skip to main content"
+    },
+    "skip_to_about":{
+        "en": "Skip to \"About government\"",
+        "fr": "FR-Skip to \"About government\""
+    },
+    "language_selection":{
+        "en":"Language selection",
+        "fr":"FR-Language selection"
+    }
+}
+
 export default class TopContentComponent extends CDTSBaseComponent {
+    
+    
+
     constructor(targetElementId, data) {
+        super(targetElementId, data);
         if (arguments.length != 2) {
             throw CDTSConstants.CDTS_INSTRUCTIONS_NOT_VALID;
         }
-        super(targetElementId, data);
         this.HasDataForRequiredProperties(data);
+        //setting a language property here for now but should be done in CDTSBaseComponent and/or Instruction processor ...
+        this.language = 'en';
+        if(data.language != undefined){
+            this.language = data.language;
+        }
+    
 
     }
 
@@ -50,7 +74,7 @@ export default class TopContentComponent extends CDTSBaseComponent {
 
     generateGoCSearchHtml(vals){
         return `
-    < section id = "wb-srch" class="col-lg-8 text-right" >
+    <section id = "wb-srch" class="col-lg-8 text-right" >
         <h2>${vals[0]}< /h2>
         < form action = "#" method = "post" name = "cse-search-box" role = "search" class="form-inline" >
             <div class="form-group" >
@@ -68,72 +92,63 @@ export default class TopContentComponent extends CDTSBaseComponent {
     < /section>`
     }
 
-    generateHeaderHtml() {
-        var hmtl = `	
-        <header>
-		<div id="wb-bnr" class="container">
-    ${
-            this.generateLanguageSelectionHtml(['Language selection'])
-            }
-			<div class="row" >
-    <div class="brand col-xs-5 col-md-4" >
-        <a href="https://www.canada.ca/en.html" > <img src="./GCWeb/assets/sig-blk-en.svg" alt = "" > <span class="wb-inv" >
-            Government of Canada / <span lang="fr" > Gouvernement du Canada < /span></span > </a>
-                < /div>
-    ${
-        this.generateGoCSearchHtml([])
+    generateGoCSiteMenuHtml(vals){
+        return `
+        < nav class="gcweb-menu" typeof="SiteNavigationElement" >
+            <div class="container" >
+                <h2 class="wb-inv" > Menu < /h2>
+                    < button type = "button" aria - haspopup="true" aria - expanded="false" >
+                        <span class="wb-inv" > Main < /span>Menu <span class="expicon glyphicon glyphicon-chevron-down"></span >
+                    </button>
+                    <!-- list links here -->
+            < /div>
+        < /nav>
+        `;
     }
-    < /div>
-    < /div>
-    < nav class="gcweb-menu" typeof="SiteNavigationElement" >
-        <div class="container" >
-            <h2 class="wb-inv" > Menu < /h2>
-                < button type = "button" aria - haspopup="true" aria - expanded="false" > <span class="wb-inv" > Main < /span>Menu <span class="expicon glyphicon glyphicon-chevron-down"></span > </button>
-                    < ul role = "menu" aria - orientation="vertical" data - ajax - replace="./ajax/sitemenu-v2-en.html" >
-                        <li role="presentation" > <a role="menuitem" href = "https://www.canada.ca/en/services/jobs.html" > Jobs and the
-workplace < /a></li >
-    <li role="presentation" > <a role="menuitem" href = "https://www.canada.ca/en/services/immigration-citizenship.html" > Immigration
-and citizenship < /a></li >
-    <li role="presentation" > <a role="menuitem" href = "https://travel.gc.ca/" > Travel and tourism < /a></li >
-        <li role="presentation" > <a role="menuitem" href = "https://www.canada.ca/en/services/business.html" > Business and
-industry < /a></li >
-    <li role="presentation" > <a role="menuitem" href = "https://www.canada.ca/en/services/benefits.html" > Benefits < /a></li >
-        <li role="presentation" > <a role="menuitem" href = "https://www.canada.ca/en/services/health.html" > Health < /a></li >
-            <li role="presentation" > <a role="menuitem" href = "https://www.canada.ca/en/services/taxes.html" > Taxes < /a></li >
-                <li role="presentation" > <a role="menuitem" href = "https://www.canada.ca/en/services/environment.html" > Environment
-and natural resources < /a></li >
-    <li role="presentation" > <a role="menuitem" href = "https://www.canada.ca/en/services/defence.html" > National security
-and defence < /a></li >
-    <li role="presentation" > <a role="menuitem" href = "https://www.canada.ca/en/services/culture.html" > Culture, history
-and sport < /a></li >
-    <li role="presentation" > <a role="menuitem" href = "https://www.canada.ca/en/services/policing.html" > Policing,
-        justice and emergencies < /a></li >
-            <li role="presentation" > <a role="menuitem" href = "https://www.canada.ca/en/services/transport.html" > Transport and
-infrastructure < /a></li >
-    <li role="presentation" > <a role="menuitem" href = "http://international.gc.ca/world-monde/index.aspx?lang=eng" > Canada
-and the world < /a></li >
-    <li role="presentation" > <a role="menuitem" href = "https://www.canada.ca/en/services/finance.html" > Money and
-finances < /a></li >
-    <li role="presentation" > <a role="menuitem" href = "https://www.canada.ca/en/services/finance.html" > Science and
-innovation < /a></li >
-    </ul>
-    < /div>
-    < /nav>
-    < nav id = "wb-bc" property = "breadcrumb" >
-        <h2>You are here: </h2>
+
+    generateBreadcrumbHtml(vals){
+        return `
+        < nav id = "wb-bc" property = "breadcrumb" >
+            <h2>You are here: </h2>
             < div class="container" >
                 <ol class="breadcrumb" >
                     <li><a href="https://www.canada.ca/en.html" > Home < /a></li >
-                        </ol>
-                        < /div>
-                        < /nav>
-                        < /header>`
+                </ol>
+            < /div>
+        < /nav>        
+        `
+    }
+
+    generateHeaderHtml() {
+        var hmtl = `	
+    <header>
+	    <div id="wb-bnr" class="container">
+            ${
+            this.data.lngLinks.length > 0 ? this.generateLanguageSelectionHtml([TOP_CONTENT_COMPONENT_TEXT.language_selection[this.language]]) : ''
+            }
+			<div class="row" >
+                <div class="brand col-xs-5 col-md-4" >
+                <a href="https://www.canada.ca/en.html" > <img src="./GCWeb/assets/sig-blk-en.svg" alt = "" >
+                <span class="wb-inv" >Government of Canada / <span lang="fr" > Gouvernement du Canada < /span></span >
+                </a>
+            < /div>
+            ${
+            this.data.search ? this.generateGoCSearchHtml([]) : ''
+            }
+        < /div>
+        ${
+            this.data.sitemenu ? this.generateGoCSiteMenuHtml([]) : ''
+        }
+        ${
+            this.data.breadcrumbs.length > 0 ? this.generateBreadcrumbHtml([]) : ''
+        }
+    < /header>`
         return hmtl;
     }
 
     generateHtml() {
         //skip nav
-        var html = this.generateSkipNavHtml([`Skip to main content`, `Skip to "About government"`]);
+        var html = this.generateSkipNavHtml([TOP_CONTENT_COMPONENT_TEXT.skip_to_main[this.language], TOP_CONTENT_COMPONENT_TEXT.skip_to_about[this.language]]);
         //header element - contains Language Selection, GoC Link, Search, Bread crumb links.
         html += this.generateHeaderHtml();
         return html;

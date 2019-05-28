@@ -1,5 +1,7 @@
 import TopContentComponent from '../../../src/wet-gcweb-components/TopContentComponent';
 import * as CDTSConstants from '../../../src/CDTS/CDTSConstants';
+import TOP_CONTENT_COMPONENT_TEXT from '../../../src/wet-gcweb-components/TopContentComponent';
+
 var elementId = "element-id";
 var data = {
     "search" : true,
@@ -24,7 +26,7 @@ var expectedLanguageSelectionHtml =`<section id="wb-lng" class="text-right">
 <li><a lang="fr" href="content-fr.html">Français</a></li>
 </ul>
 </section>`;
-var expectedGoCSearchHtml = `< section id = "wb-srch" class="col-lg-8 text-right" >
+var expectedGoCSearchHtml = `<section id = "wb-srch" class="col-lg-8 text-right" >
 <h2>value-1< /h2>
 < form action = "#" method = "post" name = "cse-search-box" role = "search" class="form-inline" >
     <div class="form-group" >
@@ -40,6 +42,7 @@ var expectedGoCSearchHtml = `< section id = "wb-srch" class="col-lg-8 text-right
     </div>
 < /form>
 < /section>`
+var expectedEmptyHeaderHtml = `<header><divid="wb-bnr" class="container"><divclass="row"><divclass="brandcol-xs-5col-md-4"><ahref="https://www.canada.ca/en.html"><imgsrc="./GCWeb/assets/sig-blk-en.svg"alt=""><spanclass="wb-inv">GovernmentofCanada/<spanlang="fr">GouvernementduCanada</span></span></a></div></div></header>`;
 
 test('TopContentComponent - generateSkipNavHtml - data with required value set - expect correct html string to be returned', ()=>{
     let component = new TopContentComponent(elementId, data);
@@ -60,6 +63,20 @@ test('TopContentComponent - generateGoCSearchHtml - data with required value set
     let vals = ['value-1', 'value-2'];
     let generatedHtml = component.generateGoCSearchHtml(vals);
     expect(generatedHtml.replace(/\s/g,'')).toContain(expectedGoCSearchHtml.replace(/\s/g,''));
+});
+
+test('TopContentComponent - generateHeaderHtml - data with required value set all false/empty - expect correct html string to be returned', ()=>{
+    let data = {
+        "search" : false,
+        "siteMenu" : false,
+        "lngLinks": [],
+        "showPreContent" : false,
+        "breadcrumbs": [],
+        "topSecMenu" : false
+    };
+    let component = new TopContentComponent(elementId, data);
+    let generatedHtml = component.generateHeaderHtml();
+    expect(generatedHtml.replace(/\s/g,'')).toContain(expectedEmptyHeaderHtml.replace(/\s/g,''));
 });
 
 // test('TopContentComponent - generateHtml - data with required values set - expect correct html string to be returned.', ()=>{
