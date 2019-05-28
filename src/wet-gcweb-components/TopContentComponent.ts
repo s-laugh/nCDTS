@@ -18,8 +18,6 @@ export const TOP_CONTENT_COMPONENT_TEXT ={
 
 export default class TopContentComponent extends CDTSBaseComponent {
     
-    
-
     constructor(targetElementId, data) {
         super(targetElementId, data);
         if (arguments.length != 2) {

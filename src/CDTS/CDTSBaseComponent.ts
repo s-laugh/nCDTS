@@ -1,5 +1,8 @@
-export default class CDTSBaseComponent{
-    constructor(targetElementId, data){
+export default abstract class CDTSBaseComponent{
+    targetElementId:string;
+    data: any;
+    language: string;
+    constructor(targetElementId: string, data: any){
         if(targetElementId === undefined || targetElementId === null ){
             throw new TypeError("Must provide a target element id");
         }else{
@@ -14,4 +17,6 @@ export default class CDTSBaseComponent{
             throw new TypeError("Must override method generateHtml");
         }
     }
+    
+    abstract generateHtml():string;
 }
