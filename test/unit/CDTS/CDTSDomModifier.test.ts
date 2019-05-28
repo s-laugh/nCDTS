@@ -1,5 +1,5 @@
 import CDTSDomModifier from '../../../src/CDTS/CDTSDomModifier';
-import jsdom from 'jsdom';
+import * as jsdom from 'jsdom';
 const { JSDOM } = jsdom;
 const testid_one = "id-one";
 const testid_two = "id-two";

@@ -1,6 +1,6 @@
 import CDTSLoader from '../../../src/CDTS/CDTSLoader';
 import * as CDTSConstants from '../../../src/CDTS/CDTSConstants';
-import jsdom from 'jsdom';
+import * as jsdom from 'jsdom';
 
 const { JSDOM } = jsdom;
 const exampleCDTSInstruction = { "test": "test" };
