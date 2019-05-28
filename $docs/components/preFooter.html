@@ -1,0 +1,76 @@
+<!-- Variable
+
+Variables are represented as { name }
+
+"pagedetails" : true, // sets if the pagedetails section is rendered
+"dateModified" : "2017-09-29", // The date the content was last modified
+"showPostContent" : true, // Used to determine if the postcontent space will be displayed, off by default.
+"showShare" : [ // Used to determine if the share button will be displayed or customized
+    "facebook",
+    "linkedin",
+    "twitter",
+    "reddit"
+],
+"showFeedback" : "https://info.info", // Used to determine if the "Report a problem ..." button will be displayed or customized
+"versionIdentifier" : "0123456789", // Used instead of dateModified
+"screenIdentifier" : "0123456789", // Used to identify screens for users that need help
+"isContainer" : false, // Used to add the container class to the pageDetails section when using the homepage look
+
+
+-->
+
+<!-- pagedetails starts -->
+<!-- If pagedetails != false this section is render-->
+<div class="pagedetails">
+    <div class="row">
+        <!-- If showFeedback != false render the following -->
+        <div class="col-sm-6 col-md-5 col-lg-4">
+            <a href="https://www.canada.ca/en/report-problem.html" class="btn btn-default text-center">Report a problem on this page</a>
+            <!-- If showFeedback = _something other than false_
+            <a href="{ showFeedback }" class="btn btn-default text-center">Report a problem on this page</a>
+            -->
+        </div>
+        <!-- If showShare !=false render the following section -->
+        <!-- If showFeedback != false and showShare !=false render the following -->
+        <div class="wb-share col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5"
+            data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
+ 
+        <!-- If showFeedback = false render the following
+        <div class="wb-share col-sm-4 col-md-3 col-sm-offset-8 col-md-offset-9"
+            data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
+        -->
+
+        <!-- 
+            <div class="wb-share col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5"
+            data-wb-share='{"filter" : [
+            // Loop array start
+            { showShare.item }, // if last item don't add ,
+            //Loop array end
+            ], "lnkClass": "btn btn-default btn-block"}'></div>
+         -->
+
+    </div>
+
+    <dl id="wb-dtmd">
+        <!--If dateModified is set  -->
+        <dt>Date modified:&#32;</dt>
+        <dd><time property="dateModified">{ dateModified }</time></dd>
+
+        <!-- If screenIdentifier is set -->
+        <dt>Screen Identifier:&#32;</dt>
+        <dd property="identifier">{ screenIdentifier }</dd>
+
+        <!-- If versionIdentifier is set -->
+        <dt>Version:&#32;</dt>
+        <dd property="version">{ versionIdentifier }</dd>
+       
+    </dl>
+</div>
+<!-- pagedetails ends -->
+
+<!-- If there's any postContent add it here 
+<aside>
+    <h2>postContent</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, provident veritatis beatae incidunt perferendis alias impedit?</p>
+</aside>
+-->
