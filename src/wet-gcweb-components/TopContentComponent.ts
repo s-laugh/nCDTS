@@ -1,5 +1,6 @@
 import CDTSBaseComponent from '../CDTS/CDTSBaseComponent';
 import * as CDTSConstants from '../CDTS/CDTSConstants';
+import CDTSCommonHtmlGenerators from '../CDTS/CDTSCommonHtmlGenerators';
 
 export const TOP_CONTENT_COMPONENT_TEXT ={
     "skip_to_main":{
@@ -62,12 +63,19 @@ export default class TopContentComponent extends CDTSBaseComponent {
     }
 
     generateLanguageSelectionHtml(vals) {
-        return `<section id="wb-lng" class="text-right">
+        var html =`<section id="wb-lng" class="text-right">
         <h2 class="wb-inv">${vals[0]}</h2>
-        <ul class="list-inline margin-bottom-none">
-        <li><a lang="fr" href="content-fr.html">Français</a></li>
-        </ul>
+        <ul class="list-inline margin-bottom-none">`;
+        if( vals.length == 2){
+            if(Array.isArray(vals[1])){
+                vals[1].forEach(element => {
+                    html += `<li>${CDTSCommonHtmlGenerators.generateHtmlAnchor(element.url, element.text, element.lang)}</li>`
+                });
+            }
+        }
+        html += `</ul>
         </section>`;
+        return html;
     }
 
     generateGoCSearchHtml(vals){
@@ -105,16 +113,28 @@ export default class TopContentComponent extends CDTSBaseComponent {
     }
 
     generateBreadcrumbHtml(vals){
-        return `
-        < nav id = "wb-bc" property = "breadcrumb" >
-            <h2>You are here: </h2>
-            < div class="container" >
-                <ol class="breadcrumb" >
-                    <li><a href="https://www.canada.ca/en.html" > Home < /a></li >
+        var html = `
+        <!-- Breadcrumbs start -->
+        <nav id="wb-bc" property="breadcrumb">
+            <h2>You are here:</h2>
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li><a href="https://www.canada.ca/en.html">Home</a></li>`;
+        if( vals.length == 2){
+            if(Array.isArray(vals[1])){
+                vals[1].forEach(element => {
+                    // <li><a href="{ breadcrumbs.href }"><abbr title="{ breadcrumbs.acronym }">{ breadcrumbs.text }</abbr></a></li>
+                    html += `
+                    <li>${CDTSCommonHtmlGenerators.generateHtmlAnchor(element.url, element.text)}</li>`
+                });
+            }
+        }                
+        html += `
                 </ol>
-            < /div>
-        < /nav>        
-        `
+            </div>
+        </nav>
+        <!-- Breadcrumbs end -->`;
+        return html;
     }
 
     generateHeaderHtml() {

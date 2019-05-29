@@ -41,8 +41,20 @@ var expectedGoCSearchHtml = `<section id = "wb-srch" class="col-lg-8 text-right"
             class="wb-inv" >value-1< /span></button >
     </div>
 < /form>
-< /section>`
-var expectedEmptyHeaderHtml = `<header><divid="wb-bnr" class="container"><divclass="row"><divclass="brandcol-xs-5col-md-4"><ahref="https://www.canada.ca/en.html"><imgsrc="./GCWeb/assets/sig-blk-en.svg"alt=""><spanclass="wb-inv">GovernmentofCanada/<spanlang="fr">GouvernementduCanada</span></span></a></div></div></header>`;
+< /section>`;
+var expectedBreadcrumbHtml =`
+<!-- Breadcrumbs start -->
+<nav id="wb-bc" property="breadcrumb">
+    <h2>You are here:</h2>
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="https://www.canada.ca/en.html">Home</a></li>
+            <li><a href="test-url">test-text</a></li>
+        </ol>
+    </div>
+</nav>
+<!-- Breadcrumbs end -->`;
+// var expectedEmptyHeaderHtml = `<header><divid="wb-bnr" class="container"><divclass="row"><divclass="brandcol-xs-5col-md-4"><ahref="https://www.canada.ca/en.html"><imgsrc="./GCWeb/assets/sig-blk-en.svg"alt=""><spanclass="wb-inv">GovernmentofCanada/<spanlang="fr">GouvernementduCanada</span></span></a></div></div></header>`;
 
 test('TopContentComponent - generateSkipNavHtml - data with required value set - expect correct html string to be returned', ()=>{
     let component = new TopContentComponent(elementId, data);
@@ -53,7 +65,8 @@ test('TopContentComponent - generateSkipNavHtml - data with required value set -
 
 test('TopContentComponent - generateLanguageSelectionHtml - data with required value set - expect correct html string to be returned', ()=>{
     let component = new TopContentComponent(elementId, data);
-    let vals = ['value-1'];
+    let links = [{"url":"content-fr.html", "text":"Français", "lang":"fr"}];
+    let vals = ['value-1', links];
     let generatedHtml = component.generateLanguageSelectionHtml(vals);
     expect(generatedHtml.replace(/\s/g,'')).toContain(expectedLanguageSelectionHtml.replace(/\s/g,''));
 });
@@ -65,24 +78,24 @@ test('TopContentComponent - generateGoCSearchHtml - data with required value set
     expect(generatedHtml.replace(/\s/g,'')).toContain(expectedGoCSearchHtml.replace(/\s/g,''));
 });
 
-test('TopContentComponent - generateHeaderHtml - data with required value set all false/empty - expect correct html string to be returned', ()=>{
-    let data = {
-        "search" : false,
-        "siteMenu" : false,
-        "lngLinks": [],
-        "showPreContent" : false,
-        "breadcrumbs": [],
-        "topSecMenu" : false
-    };
+test('TopContentComponent - generateBreadcrumbHtml - data with required value set - expect correct html string to be returned', ()=>{
     let component = new TopContentComponent(elementId, data);
-    let generatedHtml = component.generateHeaderHtml();
-    expect(generatedHtml.replace(/\s/g,'')).toContain(expectedEmptyHeaderHtml.replace(/\s/g,''));
+    let links = [{"url":"test-url", "text":"test-text"}];
+    let vals = ['value-1', links];
+    let generatedHtml = component.generateBreadcrumbHtml(vals);
+    expect(generatedHtml.replace(/\s/g,'')).toContain(expectedBreadcrumbHtml.replace(/\s/g,''));
 });
 
-// test('TopContentComponent - generateHtml - data with required values set - expect correct html string to be returned.', ()=>{
+// test('TopContentComponent - generateHeaderHtml - data with required value set all false/empty - expect correct html string to be returned', ()=>{
+//     let data = {
+//         "search" : false,
+//         "siteMenu" : false,
+//         "lngLinks": [],
+//         "showPreContent" : false,
+//         "breadcrumbs": [],
+//         "topSecMenu" : false
+//     };
 //     let component = new TopContentComponent(elementId, data);
-//     let generatedHtml = component.generateHtml();
-
-//     expect(generatedHtml.replace(/\s/g,'')).toContain(expectedSkipNavigationHtml.replace(/\s/g,''));
-//     expect(generatedHtml.replace(/\s/g,'')).toContain(expectedLanguageSelectionHtml.replace(/\s/g,''));
+//     let generatedHtml = component.generateHeaderHtml();
+//     expect(generatedHtml.replace(/\s/g,'')).toContain(expectedEmptyHeaderHtml.replace(/\s/g,''));
 // });
