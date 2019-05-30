@@ -12,14 +12,30 @@ var data = {
     "topSecMenu" : false
 };
 var expectedSkipNavigationHtml =`
+<!-- Skip navigation start -->
 <ul id="wb-tphp">
-<li class="wb-slc">
-<a class="wb-sl" href="#wb-cont">value-1</a>
-</li>
-<li class="wb-slc">
-<a class="wb-sl" href="#wb-info">value-2</a>
-</li>
-</ul>`;
+    <li class="wb-slc">
+        <a class="wb-sl" href="#wb-cont">Skip to main content</a>
+    </li>
+    <li class="wb-slc">
+        <a class="wb-sl" href="#wb-info">Skip to "About government"</a>
+    </li>
+</ul>
+<!-- Skip navigation ends -->
+`;
+var expectedSkipNavigationWithSectionMenuHtml =`
+<!-- Skip navigation start -->
+<ul id="wb-tphp">
+    <li class="wb-slc">
+        <a class="wb-sl" href="#wb-cont">Skip to main content</a>
+    </li>
+    <li class="wb-slc">
+        <a class="wb-sl" href="#wb-info">Skip to "About government"</a>
+    </li>
+    <li class="wb-slc visible-md visible-lg"><a class="wb-sl" href="#wb-sec">Skip to section menu</a></li>
+</ul>
+<!-- Skip navigation ends -->
+`;
 var expectedLanguageSelectionHtml =`<section id="wb-lng" class="text-right">
 <h2 class="wb-inv">value-1</h2>
 <ul class="list-inline margin-bottom-none">
@@ -54,13 +70,13 @@ var expectedBreadcrumbHtml =`
     </div>
 </nav>
 <!-- Breadcrumbs end -->`;
-// var expectedEmptyHeaderHtml = `<header><divid="wb-bnr" class="container"><divclass="row"><divclass="brandcol-xs-5col-md-4"><ahref="https://www.canada.ca/en.html"><imgsrc="./GCWeb/assets/sig-blk-en.svg"alt=""><spanclass="wb-inv">GovernmentofCanada/<spanlang="fr">GouvernementduCanada</span></span></a></div></div></header>`;
 
 test('TopContentComponent - generateSkipNavHtml - data with required value set - expect correct html string to be returned', ()=>{
     let component = new TopContentComponent(elementId, data);
-    let vals = ['value-1','value-2'];
-    let generatedHtml = component.generateSkipNavHtml(vals);
+    let generatedHtml = component.generateSkipNavHtml('en',false);
     expect(generatedHtml.replace(/\s/g,'')).toContain(expectedSkipNavigationHtml.replace(/\s/g,''));
+    generatedHtml = component.generateSkipNavHtml('en',true);
+    expect(generatedHtml.replace(/\s/g,'')).toContain(expectedSkipNavigationWithSectionMenuHtml.replace(/\s/g,''));
 });
 
 test('TopContentComponent - generateLanguageSelectionHtml - data with required value set - expect correct html string to be returned', ()=>{

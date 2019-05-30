@@ -11,6 +11,10 @@ export const TOP_CONTENT_COMPONENT_TEXT ={
         "en": "Skip to \"About government\"",
         "fr": "FR-Skip to \"About government\""
     },
+    "skip_to_section":{
+        "en":"Skip to section menu",
+        "fr":"FR-Skip to section menu"
+    },
     "language_selection":{
         "en":"Language selection",
         "fr":"FR-Language selection"
@@ -50,16 +54,22 @@ export default class TopContentComponent extends CDTSBaseComponent {
         });
     }
 
-    generateSkipNavHtml(vals) {
-        return `
+    generateSkipNavHtml(lang: string, hasSitemenu: boolean) {
+        var html =`
+        <!-- Skip navigation start -->
         <ul id="wb-tphp">
-        <li class="wb-slc">
-        <a class="wb-sl" href="#wb-cont">${vals[0]}</a>
-        </li>
-        <li class="wb-slc">
-        <a class="wb-sl" href="#wb-info">${vals[1]}</a>
-        </li>
-        </ul>`;
+            <li class="wb-slc">
+                <a class="wb-sl" href="#wb-cont">${TOP_CONTENT_COMPONENT_TEXT.skip_to_main[lang]}</a>
+            </li>
+            <li class="wb-slc">
+                <a class="wb-sl" href="#wb-info">${TOP_CONTENT_COMPONENT_TEXT.skip_to_about[lang]}</a>
+            </li>`;
+        if(hasSitemenu){
+            html += `<li class="wb-slc visible-md visible-lg"><a class="wb-sl" href="#wb-sec">${TOP_CONTENT_COMPONENT_TEXT.skip_to_section[lang]}</a></li>`;
+        }
+        html += `</ul>
+        <!-- Skip navigation ends -->`;
+        return html;
     }
 
     generateLanguageSelectionHtml(vals) {
@@ -166,7 +176,7 @@ export default class TopContentComponent extends CDTSBaseComponent {
 
     generateHtml() {
         //skip nav
-        var html = this.generateSkipNavHtml([TOP_CONTENT_COMPONENT_TEXT.skip_to_main[this.language], TOP_CONTENT_COMPONENT_TEXT.skip_to_about[this.language]]);
+        var html = this.generateSkipNavHtml(this.language, this.data.topSecMenu);
         //header element - contains Language Selection, GoC Link, Search, Bread crumb links.
         html += this.generateHeaderHtml();
         return html;
