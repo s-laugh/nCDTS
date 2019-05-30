@@ -16,26 +16,10 @@ var data = {
     webAnalytics: ""
 };
 
-
-test('SplashContentComponent - constructor - data null - expect error to be thrown', () => {
-    function badconstructor() {
-        var component = new SplashContentComponent(elementId); //suposed to be an error
-    }
-    expect(badconstructor).toThrowError(CDTSConstants.CDTS_INSTRUCTIONS_NOT_VALID);
-});
-
-/* test('SplashContentComponent - constructor - data missing required properties - expect error to be thrown', () => {
-    function constructorwithbaddata() {
-        // test won't compile with missing propery
-        datawithmissingprops = {}
-        component = new SplashContentComponent(elementId, datawithmissingprops);
-    }
-    expect(constructorwithbaddata).toThrowError(CDTSConstants.CDTS_INSTRUCTIONS_NOT_VALID);
-}); */
-
 test('SplashContentComponent - generateHtml - data with required values set - expect correct html string to be returned.', () => {
     let component = new SplashContentComponent(elementId, data);
     let generatedHtml = component.generateHtml();
+    
 
     expect(generatedHtml).toContain(`<h1 property="name" class="wb-inv">Canada.ca</h1>`);
     expect(generatedHtml).toContain(`<main>`);
