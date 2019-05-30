@@ -6,18 +6,18 @@ This project is based on the idea by Stan Grabinski in [Next Centrally Deployed 
 
 ## Ideas
 
-* [ ] node.js
-* [ ] no environment variables / relative to package paths
-* [ ] webpack
-* [ ] open source the project
-* [ ] automated testing
-  * [ ] unit test
+* [X] node.js
+* [X] no environment variables / relative to package paths
+* [X] webpack
+* [X] open source the project
+* [X] automated testing
+  * [X] unit test
   * [ ] a11y
 * [ ] automated deploy using CI
 * [ ] generating example pages (documentation)
-  * [ ] using assemble.io
-* [ ] licensing (MIT, ISC, etc?)
-* [ ] babel
+  * [ ] using assemble.io ?
+* [X] licensing (MIT, ISC, etc?)
+* [X] babel
 * [ ] Way for developer to choose what version to use (in json, path or other way) 
   * [ ] way to maintain it (git branch, git label, git releases)
 * [ ] git submodule for samples
@@ -38,7 +38,4 @@ Maybe add a place to title the page with a `data-cdts` attribute? This way we co
 
 Should we limit the amount of HTML elements they put in??? Remove the `main`, `h1`, `title`, and even the meta description.
 
-Should our script element for our main JS be at the top of the bottom of the page????
-
-
-
+* [X] Script elements at the bottom of the source code.
