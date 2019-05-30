@@ -71,11 +71,15 @@ var expectedBreadcrumbHtml =`
 </nav>
 <!-- Breadcrumbs end -->`;
 
-test('TopContentComponent - generateSkipNavHtml - data with required value set - expect correct html string to be returned', ()=>{
+test('TopContentComponent - generateSkipNavHtml - with top section menu parameter set to false - expect correct html string to be returned', ()=>{
     let component = new TopContentComponent(elementId, data);
     let generatedHtml = component.generateSkipNavHtml('en',false);
     expect(generatedHtml.replace(/\s/g,'')).toContain(expectedSkipNavigationHtml.replace(/\s/g,''));
-    generatedHtml = component.generateSkipNavHtml('en',true);
+});
+
+test('TopContentComponent - generateSkipNavHtml - with top section menu parameter set to true - expect correct html string to be returned', ()=>{
+    let component = new TopContentComponent(elementId, data);
+    let generatedHtml = component.generateSkipNavHtml('en',true);
     expect(generatedHtml.replace(/\s/g,'')).toContain(expectedSkipNavigationWithSectionMenuHtml.replace(/\s/g,''));
 });
 
