@@ -11,4 +11,3 @@ export const CDTS_INSTRUCTIONS_ADDITIONAL_SCRIPTS_SRC_KEY = "additional-script-s
 export const CDTS_INSTRUCTIONS_NOT_VALID = "Unable to process CDTS instruction data.";
 export const CDTS_INSTRUCTIONS_COMPONENT_PACKAGE_NAME_KEY = "component-package";
 export const CDTS_INSTRUCTIONS_COMPONENT_NAME_KEY = "component-name";
-

@@ -1,7 +1,7 @@
 
-export default class CDTSCommonHtmlGenerators{
+export default class CDTSCommonHtmlGenerators {
 
-    static generateHtmlAnchor(url:String, text:String, lang?:String): String {
-        return `<a ${ lang != undefined ? `lang="${lang}" `:''}href="${url}">${text}</a>`
+    public static generateHtmlAnchor(url: string, text: string, lang?: string): string {
+        return `<a ${lang !== undefined ? `lang="${lang}" ` : ""}href="${url}">${text}</a>`;
     }
 }

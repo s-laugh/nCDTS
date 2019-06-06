@@ -2,32 +2,31 @@
 
 export default class CDTSDomModifier {
 
-
-    static replaceInnerHtml(theWindow, element_id, replacementHtml) {
-        var targetElement = theWindow.document.getElementById(element_id);
+    public static replaceInnerHtml(theWindow, elementId, replacementHtml) {
+        const targetElement = theWindow.document.getElementById(elementId);
         targetElement.innerHTML = replacementHtml;
-        var allElements = targetElement.getElementsByTagName('*');
-        for(var i =0 ; i < allElements.length; i++){
-            //remove any script elements
-            if(allElements[i].tagName === 'SCRIPT'){
-                targetElement.removeChild(allElements[i]);
-            }else{
-             //remove unwanted attributes (XSS)
-             var attrbs = allElements[i].attributes;
-             for(var x=0; x< attrbs.length; x ++){
-                 if(attrbs[x].name.startsWith('on')){
-                    allElements[i].removeAttribute(attrbs[x].name);
-                 }else if(attrbs[x].value.trim().search('javascript:') > -1){
-                    allElements[i].removeAttribute(attrbs[x].name);
-                 }
-             }
+        const allElements = targetElement.getElementsByTagName("*");
+        for (const anElement of allElements) {
+            // remove any script elements
+            if (anElement.tagName === "SCRIPT") {
+                targetElement.removeChild(anElement);
+            } else {
+                // remove unwanted attributes (XSS)
+                const attrbs = anElement.attributes;
+                for (const attribute of attrbs) {
+                    if (attribute.name.startsWith("on")) {
+                        anElement.removeAttribute(attribute.name);
+                    } else if (attribute.value.trim().search("javascript:") > -1) {
+                        anElement.removeAttribute(attribute.name);
+                    }
+                }
             }
         }
     }
 
-    static createScriptElement(theWindow, scriptSrc) {
-        var scriptElement = theWindow.document.createElement('script');
-        scriptElement.type = 'text/javascript';
+    public static createScriptElement(theWindow, scriptSrc) {
+        const scriptElement = theWindow.document.createElement("script");
+        scriptElement.type = "text/javascript";
         scriptElement.src = scriptSrc;
         return scriptElement;
     }

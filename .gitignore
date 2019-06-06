@@ -9,3 +9,4 @@ package-lock\.json
 packages/*
 !packages/build/
 !**/packages/build/
+coverage/*
