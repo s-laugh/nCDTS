@@ -17,7 +17,7 @@ export default class PreFooterContentComponent extends CDTSBaseComponent {
             "showShare"];
         let keys : string[] = Object.keys(data);
         requiredProperties.forEach((required) => {
-            if (keys.includes(required) === false) {
+            if (!keys.includes(required)) {
                 throw CDTSConstants.CDTS_INSTRUCTIONS_NOT_VALID;
             }
         });
