@@ -29,13 +29,16 @@ This is all of the html to be included before existing page content.
 
 This is all of the html to be included after existing page content.
 
+- **$pagedetails** - Used to determine if the `pagedetails` div will be displayed (contains the whole `preFooter` section)
 - **$dateModified** - The date the content was last modified.
-- **$showPostContent** - Used to determine if the postcontent space will be displayed, off by default.
 - **$showShare** - Used to determine if the share button will be displayed
 - **$showFeedback** - Used to determine if the "Report a problem ..." button will be displayed or customized
 - **$versionIdentifier** - Used instead of dateModified
 - **$screenIdentifier** - Used to identify screens for users that need help
-- **$pagedetails** - Used to determine if the pagedetails div will be displayed
+
+Not implemented
+
+- **$showPostContent** - Used to determine if the postcontent space will be displayed, off by default.
 - **$isContainer** - Used to add the container class to the pageDetails section when using the homepage look
 
 ### secmenu
