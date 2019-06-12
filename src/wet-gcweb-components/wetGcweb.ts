@@ -3,7 +3,7 @@ import TopContentComponent from "./TopContentComponent";
 
 const components = {
   SplashContentComponent,
-  TopContentComponent
+  TopContentComponent,
 };
 
 export default class ModuleComponents {

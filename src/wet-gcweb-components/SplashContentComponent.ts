@@ -1,10 +1,10 @@
-import CDTSBaseComponent from '../CDTS/CDTSBaseComponent';
-import * as CDTSConstants from '../CDTS/CDTSConstants';
+import CDTSBaseComponent from "../CDTS/CDTSBaseComponent";
+import * as CDTSConstants from "../CDTS/CDTSConstants";
 
 export default class SplashContentComponent extends CDTSBaseComponent {
 
     constructor(targetElementId, data) {
-        if (arguments.length != 2) {
+        if (arguments.length !== 2) {
             throw CDTSConstants.CDTS_INSTRUCTIONS_NOT_VALID;
         }
         super(targetElementId, data);
@@ -12,30 +12,30 @@ export default class SplashContentComponent extends CDTSBaseComponent {
 
     }
 
-    HasDataForRequiredProperties(data) {
-        var requiredProperties = [
-            'cdts_version', 
-            'nameEng', 
-            'indexEng',
-            'nameFra',
-            'indexFra',
-            'termsEng',
-            'termsFra'
+    public HasDataForRequiredProperties(data) {
+        const requiredProperties = [
+            "cdts_version",
+            "nameEng",
+            "indexEng",
+            "nameFra",
+            "indexFra",
+            "termsEng",
+            "termsFra",
         ];
-        var keys = Object.keys(this.data);
+        const keys = Object.keys(this.data);
         requiredProperties.forEach((required) => {
-            if(keys.includes(required) == false){
+            if (keys.includes(required) === false) {
                 throw CDTSConstants.CDTS_INSTRUCTIONS_NOT_VALID;
             }
         });
     }
 
-    generateHtml() {
+    /* tslint:disable: max-line-length */
+    public generateHtml() {
         return (`
             <div id="bg">
-                <img src="https://ssl-templates.services.gc.ca/app/cls/WET/gcweb/${this.data.cdts_version}/img/splash/sp-bg-2.jpg" alt="">
+            <img src="https://ssl-templates.services.gc.ca/app/cls/WET/gcweb/${this.data.cdts_version}/img/splash/sp-bg-2.jpg" alt="">
             </div>
-        ` + `
             <main>
                 <div class="sp-hb">
                     <div class="sp-bx col-xs-12">
