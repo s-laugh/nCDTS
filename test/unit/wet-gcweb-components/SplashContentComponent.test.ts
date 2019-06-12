@@ -32,3 +32,10 @@ test('SplashContentComponent - generateHtml - data with required values set - ex
     expect(generatedHtml).toContain(`<a href="${data.termsEng}" class="sp-lk">`);
     expect(generatedHtml).toContain(`https://ssl-templates.services.gc.ca/app/cls/WET/gcweb/${data.cdts_version}/assets/wmms-spl.svg`);
 });
+
+test("SplashContentComponent - generateHtml - data elements are required, thows error", ()=> {
+    let badData : any = {};
+
+    // tslint:disable-next-line: no-unused-expression
+    expect(()=> { new SplashContentComponent(elementId, badData); }).toThrowError(CDTSConstants.CDTS_INSTRUCTIONS_NOT_VALID);
+});

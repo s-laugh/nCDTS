@@ -3,16 +3,13 @@ import * as CDTSConstants from '../CDTS/CDTSConstants';
 
 export default class SplashContentComponent extends CDTSBaseComponent {
 
-    constructor(targetElementId, data) {
-        if (arguments.length != 2) {
-            throw CDTSConstants.CDTS_INSTRUCTIONS_NOT_VALID;
-        }
+    constructor(targetElementId: string, data: any) {
         super(targetElementId, data);
         this.HasDataForRequiredProperties(data);
 
     }
 
-    HasDataForRequiredProperties(data) {
+    HasDataForRequiredProperties(data: any) {
         var requiredProperties = [
             'cdts_version', 
             'nameEng', 
