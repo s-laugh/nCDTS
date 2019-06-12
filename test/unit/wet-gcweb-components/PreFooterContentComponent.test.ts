@@ -1,4 +1,5 @@
 import PreFooterContentComponent from "../../../src/wet-gcweb-components/PreFooterContentComponent";
+import { PRE_FOOTER_TEXT } from "../../../src/wet-gcweb-components/PreFooterContentComponent";
 import * as CDTSConstants from "../../../src/CDTS/CDTSConstants";
 
 var elementId : string = "element-id";
@@ -22,6 +23,25 @@ test("PreFooterContentComponent - generateHtml - renders all parts", ()=> {
     expect(generatedHtml.replace(/\s/g,"")).toContain(data.dateModified.replace(/\s/g,""));
     expect(generatedHtml.replace(/\s/g,"")).toContain(data.screenIdentifier.replace(/\s/g,""));
     expect(generatedHtml.replace(/\s/g,"")).toContain(data.versionIdentifier.replace(/\s/g,""));
+});
+
+test("PreFooterContentComponent - generateHtml - renders fr text", ()=> {
+    let data : any = {
+        "language": "fr",
+        "pagedetails" : true,
+        "showFeedback" : true,
+        "showShare": false,
+        "dateModified" : "2019-06-07",
+        "screenIdentifier" : "screenIdentifier00012",
+        "versionIdentifier" : "0.0.1"
+    };
+    let component : PreFooterContentComponent = new PreFooterContentComponent(elementId, data);
+    let generatedHtml : string = component.generateHtml();
+
+    expect(generatedHtml.replace(/\s/g,"")).toContain(PRE_FOOTER_TEXT.report_problem.fr.replace(/\s/g,""));
+    expect(generatedHtml.replace(/\s/g,"")).toContain(PRE_FOOTER_TEXT.date_modified.fr.replace(/\s/g,""));
+    expect(generatedHtml.replace(/\s/g,"")).toContain(PRE_FOOTER_TEXT.screen_ident.fr.replace(/\s/g,""));
+    expect(generatedHtml.replace(/\s/g,"")).toContain(PRE_FOOTER_TEXT.version.fr.replace(/\s/g,""));
 });
 
 test("PreFooterContentComponent - generateHtml - renders no parts", ()=> {
