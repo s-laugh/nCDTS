@@ -9,7 +9,7 @@ const components : any = {
 };
 
 export default class ModuleComponents {
-  constructor(componentName : string, targetelement : string, opts : any) {
-    return new components[componentName](targetelement, opts);
+  constructor(componentName : string, targetElement : string, opts : any) {
+    return new components[componentName](targetElement, opts);
   }
 }
