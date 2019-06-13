@@ -1,17 +1,15 @@
-import TopContentComponent from '../../../src/wet-gcweb-components/TopContentComponent';
-import * as CDTSConstants from '../../../src/CDTS/CDTSConstants';
-import TOP_CONTENT_COMPONENT_TEXT from '../../../src/wet-gcweb-components/TopContentComponent';
-
-var elementId = "element-id";
-var data = {
-    "search" : true,
-    "siteMenu" : true,
-    "lngLinks": [],
-    "showPreContent" : false,
-    "breadcrumbs": [],
-    "topSecMenu" : false
+import TopContentComponent from "../../../src/wet-gcweb-components/TopContentComponent";
+// tslint:disable: max-line-length
+const elementId = "element-id";
+const data = {
+    breadcrumbs: [],
+    lngLinks: [],
+    search: true,
+    showPreContent: false,
+    siteMenu: true,
+    topSecMenu: false,
 };
-var expectedSkipNavigationHtml =`
+const expectedSkipNavigationHtml = `
 <!-- Skip navigation start -->
 <ul id="wb-tphp">
     <li class="wb-slc">
@@ -23,7 +21,7 @@ var expectedSkipNavigationHtml =`
 </ul>
 <!-- Skip navigation ends -->
 `;
-var expectedSkipNavigationWithSectionMenuHtml =`
+const expectedSkipNavigationWithSectionMenuHtml = `
 <!-- Skip navigation start -->
 <ul id="wb-tphp">
     <li class="wb-slc">
@@ -36,13 +34,13 @@ var expectedSkipNavigationWithSectionMenuHtml =`
 </ul>
 <!-- Skip navigation ends -->
 `;
-var expectedLanguageSelectionHtml =`<section id="wb-lng" class="text-right">
+const expectedLanguageSelectionHtml = `<section id="wb-lng" class="text-right">
 <h2 class="wb-inv">value-1</h2>
 <ul class="list-inline margin-bottom-none">
 <li><a lang="fr" href="content-fr.html">Français</a></li>
 </ul>
 </section>`;
-var expectedGoCSearchHtml = `<section id = "wb-srch" class="col-lg-8 text-right" >
+const expectedGoCSearchHtml = `<section id = "wb-srch" class="col-lg-8 text-right" >
 <h2>value-1< /h2>
 < form action = "#" method = "post" name = "cse-search-box" role = "search" class="form-inline" >
     <div class="form-group" >
@@ -58,7 +56,7 @@ var expectedGoCSearchHtml = `<section id = "wb-srch" class="col-lg-8 text-right"
     </div>
 < /form>
 < /section>`;
-var expectedBreadcrumbHtml =`
+const expectedBreadcrumbHtml = `
 <!-- Breadcrumbs start -->
 <nav id="wb-bc" property="breadcrumb">
     <h2>You are here:</h2>
@@ -71,39 +69,39 @@ var expectedBreadcrumbHtml =`
 </nav>
 <!-- Breadcrumbs end -->`;
 
-test('TopContentComponent - generateSkipNavHtml - with top section menu parameter set to false - expect correct html string to be returned', ()=>{
-    let component = new TopContentComponent(elementId, data);
-    let generatedHtml = component.generateSkipNavHtml('en',false);
-    expect(generatedHtml.replace(/\s/g,'')).toContain(expectedSkipNavigationHtml.replace(/\s/g,''));
+test("TopContentComponent - generateSkipNavHtml - with top section menu parameter set to false - expect correct html string to be returned", () => {
+    const component = new TopContentComponent(elementId, data);
+    const generatedHtml = component.generateSkipNavHtml("en", false);
+    expect(generatedHtml.replace(/\s/g, "")).toContain(expectedSkipNavigationHtml.replace(/\s/g, ""));
 });
 
-test('TopContentComponent - generateSkipNavHtml - with top section menu parameter set to true - expect correct html string to be returned', ()=>{
-    let component = new TopContentComponent(elementId, data);
-    let generatedHtml = component.generateSkipNavHtml('en',true);
-    expect(generatedHtml.replace(/\s/g,'')).toContain(expectedSkipNavigationWithSectionMenuHtml.replace(/\s/g,''));
+test("TopContentComponent - generateSkipNavHtml - with top section menu parameter set to true - expect correct html string to be returned", () => {
+    const component = new TopContentComponent(elementId, data);
+    const generatedHtml = component.generateSkipNavHtml("en", true);
+    expect(generatedHtml.replace(/\s/g, "")).toContain(expectedSkipNavigationWithSectionMenuHtml.replace(/\s/g, ""));
 });
 
-test('TopContentComponent - generateLanguageSelectionHtml - data with required value set - expect correct html string to be returned', ()=>{
-    let component = new TopContentComponent(elementId, data);
-    let links = [{"url":"content-fr.html", "text":"Français", "lang":"fr"}];
-    let vals = ['value-1', links];
-    let generatedHtml = component.generateLanguageSelectionHtml(vals);
-    expect(generatedHtml.replace(/\s/g,'')).toContain(expectedLanguageSelectionHtml.replace(/\s/g,''));
+test("TopContentComponent - generateLanguageSelectionHtml - data with required value set - expect correct html string to be returned", () => {
+    const component = new TopContentComponent(elementId, data);
+    const links = [{ url: "content-fr.html", text: "Français", lang: "fr" }];
+    const vals = ["value-1", links];
+    const generatedHtml = component.generateLanguageSelectionHtml(vals);
+    expect(generatedHtml.replace(/\s/g, "")).toContain(expectedLanguageSelectionHtml.replace(/\s/g, ""));
 });
 
-test('TopContentComponent - generateGoCSearchHtml - data with required value set - expect correct html string to be returned', ()=>{
-    let component = new TopContentComponent(elementId, data);
-    let vals = ['value-1', 'value-2'];
-    let generatedHtml = component.generateGoCSearchHtml(vals);
-    expect(generatedHtml.replace(/\s/g,'')).toContain(expectedGoCSearchHtml.replace(/\s/g,''));
+test("TopContentComponent - generateGoCSearchHtml - data with required value set - expect correct html string to be returned", () => {
+    const component = new TopContentComponent(elementId, data);
+    const vals = ["value-1", "value-2"];
+    const generatedHtml = component.generateGoCSearchHtml(vals);
+    expect(generatedHtml.replace(/\s/g, "")).toContain(expectedGoCSearchHtml.replace(/\s/g, ""));
 });
 
-test('TopContentComponent - generateBreadcrumbHtml - data with required value set - expect correct html string to be returned', ()=>{
-    let component = new TopContentComponent(elementId, data);
-    let links = [{"url":"test-url", "text":"test-text"}];
-    let vals = ['value-1', links];
-    let generatedHtml = component.generateBreadcrumbHtml(vals);
-    expect(generatedHtml.replace(/\s/g,'')).toContain(expectedBreadcrumbHtml.replace(/\s/g,''));
+test("TopContentComponent - generateBreadcrumbHtml - data with required value set - expect correct html string to be returned", () => {
+    const component = new TopContentComponent(elementId, data);
+    const links = [{ url: "test-url", text: "test-text" }];
+    const vals = ["value-1", links];
+    const generatedHtml = component.generateBreadcrumbHtml(vals);
+    expect(generatedHtml.replace(/\s/g, "")).toContain(expectedBreadcrumbHtml.replace(/\s/g, ""));
 });
 
 // test('TopContentComponent - generateHeaderHtml - data with required value set all false/empty - expect correct html string to be returned', ()=>{
